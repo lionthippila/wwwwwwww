@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f7f5">
+<title>Lexi — Vocabulary Studio</title>
+<style>
+:root{--bg:#f7f7f5;--paper:#fff;--ink:#20211f;--muted:#777a73;--line:#e8e8e2;--accent:#526b52;--soft:#edf2eb;--yellow:#f4e9bb;--pink:#f5e6e1;--blue:#e6edf5;--shadow:0 12px 35px rgba(28,32,25,.055);--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer;transition:.18s ease}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b8c9b5;outline-offset:2px}.app{max-width:1180px;margin:auto;padding:26px 24px 54px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:34px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:21px;letter-spacing:-.7px}.logo{display:grid;place-items:center;width:39px;height:39px;background:var(--ink);color:white;border-radius:13px;font-size:18px}.top-right{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 14px;color:var(--muted);font-size:13px}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:800;color:var(--accent)}h1{font-size:clamp(32px,5vw,48px);letter-spacing:-2px;line-height:1.1;margin:9px 0 12px}p{margin:0}.sub{color:var(--muted);max-width:590px;font-size:15px}.primary,.secondary,.ghost,.danger{border:0;border-radius:13px;padding:12px 17px;font-weight:700;font-size:13px}.primary{background:var(--ink);color:white}.primary:hover{background:#3c4f3c;transform:translateY(-1px)}.secondary{background:var(--soft);color:var(--accent)}.ghost{background:white;border:1px solid var(--line);color:var(--ink)}.danger{background:#f9e8e5;color:#a33d31}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:27px 0 32px}.stat{padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}.stat-label{font-size:12px;color:var(--muted)}.stat-num{font-size:29px;font-weight:800;letter-spacing:-1px;margin-top:3px}.stat-foot{font-size:11px;color:var(--muted);margin-top:3px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.section-head h2{font-size:20px;letter-spacing:-.6px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin-top:4px}.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.chapter{position:relative;overflow:hidden;text-align:left;background:white;border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink)}.chapter:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cdd7c9}.chapter-top{display:flex;align-items:center;justify-content:space-between}.chapter-number{font-size:11px;letter-spacing:1.5px;color:var(--muted);font-weight:800}.chapter-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:13px;font-size:19px}.c1 .chapter-icon{background:var(--soft)}.c2 .chapter-icon{background:var(--yellow)}.c3 .chapter-icon{background:var(--blue)}.chapter h3{font-size:20px;margin:17px 0 4px;letter-spacing:-.6px}.chapter p{font-size:12px;color:var(--muted)}.chapter-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:18px;font-size:12px;color:var(--muted)}.progress{height:4px;background:#efefeb;border-radius:20px;margin-top:10px;overflow:hidden}.progress span{display:block;height:100%;background:var(--accent);border-radius:20px;width:0}.lower-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:36px}.panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:23px}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.panel-title h2{font-size:18px;margin:0;letter-spacing:-.5px}.panel-title span{font-size:12px;color:var(--muted)}.word-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #f0f0ec}.word-row:last-child{border-bottom:0}.word-main{min-width:0}.word-main strong{display:block;font-size:14px}.word-main small{color:var(--muted);font-size:12px}.tag{font-size:10px;background:var(--soft);color:var(--accent);padding:5px 8px;border-radius:999px;white-space:nowrap}.game-list{display:grid;gap:10px}.game{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:15px;background:white;text-align:left;color:var(--ink)}.game:hover{background:#fafaf7;border-color:#cdd7c9}.game-icon{width:43px;height:43px;display:grid;place-items:center;background:var(--soft);border-radius:13px;font-size:19px;flex-shrink:0}.game:nth-child(2) .game-icon{background:var(--yellow)}.game:nth-child(3) .game-icon{background:var(--pink)}.game strong{display:block;font-size:13px}.game small{display:block;font-size:11px;color:var(--muted);margin-top:2px}.arrow{margin-left:auto;color:var(--muted)}.page{display:none}.page.active{display:block}.backline{display:flex;align-items:center;gap:12px;margin-bottom:22px}.back{border:1px solid var(--line);background:white;border-radius:12px;padding:9px 13px;font-size:13px}.page-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:24px}.page-heading h1{font-size:36px;margin:5px 0 7px}.page-heading p{color:var(--muted);font-size:13px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.field{border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px;min-width:0;color:var(--ink)}.search{flex:1;min-width:190px}.word-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.vocab-card{padding:20px;background:white;border:1px solid var(--line);border-radius:18px;min-height:160px;display:flex;flex-direction:column}.vocab-card .term{font-size:21px;font-weight:800;letter-spacing:-.5px}.vocab-card .pron{font-size:11px;color:var(--muted);margin-top:1px}.vocab-card .meaning{margin-top:14px;font-size:14px}.vocab-card .example{margin-top:7px;font-size:12px;color:var(--muted);font-style:italic}.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:17px}.card-actions{display:flex;gap:6px}.icon-btn{border:1px solid var(--line);background:white;border-radius:9px;padding:6px 9px;font-size:12px}.empty{padding:42px 15px;text-align:center;color:var(--muted);border:1px dashed #d9d9d1;border-radius:18px;grid-column:1/-1}.empty b{display:block;color:var(--ink);margin-bottom:5px}.quiz-wrap{max-width:720px;margin:0 auto}.quiz-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:10px}.quiz-progress{height:5px;background:#e9e9e3;border-radius:9px;overflow:hidden;margin-bottom:22px}.quiz-progress span{height:100%;display:block;background:var(--accent);width:0;transition:width .2s}.question-card{padding:clamp(23px,5vw,42px);background:white;border:1px solid var(--line);border-radius:24px;text-align:center}.question-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}.question-word{font-size:clamp(30px,6vw,44px);letter-spacing:-1.5px;font-weight:800;margin:12px 0 8px}.question-hint{color:var(--muted);font-size:13px;margin-bottom:25px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{background:white;border:1px solid var(--line);border-radius:13px;padding:15px 12px;text-align:left;font-size:13px}.answer:hover{border-color:#9db19a;background:#f8faf7}.answer.correct{background:#edf5eb;border-color:#8eaf88}.answer.wrong{background:#fff0ed;border-color:#dfa49b}.feedback{min-height:25px;margin-top:16px;font-size:13px;color:var(--muted)}.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}.result-score{font-size:54px;font-weight:800;letter-spacing:-2px}.result-box{text-align:center;padding:40px 20px}.result-box p{color:var(--muted);margin:8px 0 23px}.flashcard{min-height:270px;display:grid;place-items:center;text-align:center;background:white;border:1px solid var(--line);border-radius:24px;padding:30px;cursor:pointer}.flashcard .big{font-size:36px;font-weight:800;letter-spacing:-1px}.flashcard .small{font-size:12px;color:var(--muted);margin-bottom:15px}.flashcard .flip-hint{font-size:11px;color:var(--muted);margin-top:20px}.flash-controls{display:flex;justify-content:center;gap:10px;margin-top:15px;flex-wrap:wrap}.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.match-tile{border:1px solid var(--line);background:white;border-radius:13px;padding:15px 10px;min-height:72px;font-size:13px}.match-tile.selected{border-color:var(--accent);background:var(--soft)}.match-tile.matched{opacity:.4;pointer-events:none}.match-tile.miss{border-color:#d99a8f;background:#fff0ed}.notice{font-size:12px;color:var(--muted);margin-top:12px}.modal-backdrop{position:fixed;inset:0;background:rgba(25,28,23,.35);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal-backdrop.open{display:flex}.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:var(--bg);border-radius:23px;padding:25px;box-shadow:0 25px 90px #0002}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px}.modal-head h2{margin:0;font-size:21px}.close{border:1px solid var(--line);background:white;border-radius:10px;padding:6px 11px}.form-grid{display:grid;gap:13px}.form-grid label{font-size:12px;font-weight:700;color:#55584f;display:grid;gap:6px}.form-grid input,.form-grid select,.form-grid textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink)}.form-grid textarea{resize:vertical;min-height:72px}.form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:19px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#20211f;color:white;padding:11px 17px;border-radius:12px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}.footer{margin-top:35px;text-align:center;color:var(--muted);font-size:11px}.hidden{display:none!important}
+@media(max-width:850px){.chapter-grid{grid-template-columns:1fr 1fr}.word-grid{grid-template-columns:1fr 1fr}.lower-grid{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.hero .primary{align-self:flex-start}}
+@media(max-width:560px){.app{padding:18px 14px 36px}.topbar{margin-bottom:25px}.pill{display:none}.stats{gap:8px;margin:20px 0 26px}.stat{padding:14px 12px;border-radius:16px}.stat-num{font-size:24px}.stat-label{font-size:10px}.chapter-grid,.word-grid{grid-template-columns:1fr}.chapter{min-height:165px;padding:19px}.page-heading{align-items:flex-start;flex-direction:column}.page-heading h1{font-size:31px}.answers{grid-template-columns:1fr}.panel{padding:18px}.section-head{align-items:flex-start}.match-grid{gap:7px}.match-tile{padding:12px 7px;font-size:12px}}
+.part-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.part-tab{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--ink)}.part-tab small{color:var(--muted);margin-left:5px;font-weight:500}.part-tab:hover{border-color:#9db19a}.part-tab.active{background:var(--ink);border-color:var(--ink);color:white}.part-tab.active small{color:#d9e2d6}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}.head-selects{display:flex;gap:10px;flex-wrap:wrap}
+.part-tab:disabled{opacity:.4;cursor:not-allowed}.setup-card{background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,34px)}.setup-group{margin-bottom:22px}.setup-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;color:var(--muted);margin-bottom:10px}.setup-chips{display:flex;gap:8px;flex-wrap:wrap}.setup-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:6px;border-top:1px solid #f0f0ec;margin-top:6px;padding-top:18px}.setup-foot span{font-size:13px;color:var(--muted)}.primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.part-tab.add{border-style:dashed;color:var(--accent)}.part-tab.add:hover{background:var(--soft)}.part-tab.remove{border-style:dashed;color:#a33d31;font-weight:500}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">L.</div><span>lexi<span style="color:var(--accent)">.</span></span></div>
+    <div class="top-right"><span class="pill" id="datePill">VOCABULARY STUDIO</span><button class="ghost" id="importBtn" title="นำเข้าไฟล์สำรอง (.json)">Import data ↙</button><button class="ghost" id="exportBtn" title="ส่งออกไฟล์สำรอง (.json)">Export data ↗</button></div>
+  </header>
+
+  <main id="homePage" class="page active">
+    <section class="hero">
+      <div><div class="eyebrow">Your personal study space</div><h1>Learn a little.<br>Remember a lot.</h1><p class="sub">พื้นที่เก็บศัพท์ส่วนตัว แบ่งบทให้ชัด แล้วเปลี่ยนเวลาทบทวนให้เป็นเรื่องสนุก</p></div>
+      <button class="primary" id="addWordHome">＋ เพิ่มคำศัพท์ใหม่</button>
+    </section>
+    <section class="stats">
+      <div class="stat"><div class="stat-label">คำศัพท์ทั้งหมด / Total words</div><div class="stat-num" id="totalWords">0</div><div class="stat-foot">คำที่คุณกำลังสะสม</div></div>
+      <div class="stat"><div class="stat-label">จำได้แล้ว / Mastered</div><div class="stat-num" id="masteredWords">0</div><div class="stat-foot">คำที่ทำเครื่องหมายว่าจำได้</div></div>
+      <div class="stat"><div class="stat-label">ความคืบหน้า / Progress</div><div class="stat-num" id="progressPercent">0%</div><div class="stat-foot">ค่อย ๆ เก่งขึ้นทีละคำ</div></div>
+    </section>
+    <section>
+      <div class="section-head"><div><h2>บทเรียนของคุณ</h2><p>เลือกบทที่ต้องการทบทวน</p></div><button class="ghost" id="viewAllBtn">ดูคำศัพท์ทั้งหมด ↗</button></div>
+      <div class="chapter-grid" id="chapterGrid"></div>
+    </section>
+    <section class="lower-grid">
+      <div class="panel"><div class="panel-title"><h2>เพิ่งเพิ่มเข้ามา</h2><span>RECENT WORDS</span></div><div id="recentWords"></div></div>
+      <div class="panel"><div class="panel-title"><h2>โหมดฝึกฝน</h2><span>STUDY GAMES</span></div>
+        <div class="game-list">
+          <button class="game" data-game="quiz"><span class="game-icon">✳</span><span><strong>Quick Quiz</strong><small>เลือกความหมายที่ถูกต้อง</small></span><span class="arrow">↗</span></button>
+          <button class="game" data-game="flash"><span class="game-icon">▤</span><span><strong>Flashcards</strong><small>พลิกบัตรคำเพื่อทบทวน</small></span><span class="arrow">↗</span></button>
+          <button class="game" data-game="match"><span class="game-icon">⌘</span><span><strong>Word Match</strong><small>จับคู่คำศัพท์กับความหมาย</small></span><span class="arrow">↗</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="vocabPage" class="page">
+    <div class="backline"><button class="back" data-home>← หน้าหลัก</button><span class="eyebrow">YOUR VOCABULARY</span></div>
+    <div class="page-heading"><div><div class="eyebrow" id="vocabEyebrow">CHAPTER 01</div><h1 id="vocabTitle">คำศัพท์</h1><p id="vocabDesc">ทบทวนคำศัพท์ของคุณ</p></div><button class="primary" id="addWordPage">＋ เพิ่มคำศัพท์</button></div>
+    <div class="toolbar"><input id="searchInput" class="field search" placeholder="ค้นหาคำศัพท์หรือความหมาย..." aria-label="ค้นหาคำศัพท์"><select id="chapterFilter" class="field" aria-label="เลือกบท"><option value="all">ทุกบท</option><option value="1">บทที่ 1</option><option value="2">บทที่ 2</option><option value="3">บทที่ 3</option></select><select id="sortFilter" class="field" aria-label="เรียงลำดับ"><option value="new">เพิ่มล่าสุด</option><option value="az">A → Z</option><option value="mastered">คำที่ยังไม่จำ</option></select></div>
+    <div class="part-tabs hidden" id="partTabs" role="tablist" aria-label="เลือก Part"></div>
+    <div class="word-grid" id="wordGrid"></div>
+  </main>
+
+  <main id="gamePage" class="page">
+    <div class="backline"><button class="back" data-home>← หน้าหลัก</button><span class="eyebrow">PRACTICE MODE</span></div>
+    <div class="page-heading"><div><div class="eyebrow" id="gameEyebrow">QUICK QUIZ</div><h1 id="gameTitle">พร้อมทบทวนหรือยัง?</h1><p id="gameDesc">ฝึกวันละนิด จำได้มากขึ้น</p></div><div class="head-selects hidden" id="gameSelects"><select id="gameChapter" class="field" aria-label="เลือกบทสำหรับเกม"><option value="all">ทุกบท</option><option value="1">บทที่ 1</option><option value="2">บทที่ 2</option><option value="3">บทที่ 3</option></select><select id="gamePart" class="field hidden" aria-label="เลือก Part สำหรับเกม"></select></div></div>
+    <div class="quiz-wrap" id="quizArea"></div>
+  </main>
+  <div class="footer">Made for your next big exam · <span id="footerCount">0 words</span> in your collection</div>
+</div>
+
+<div class="modal-backdrop" id="wordModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><div class="modal-head"><h2 id="modalTitle">เพิ่มคำศัพท์ใหม่</h2><button class="close" id="closeModal" aria-label="ปิด">✕</button></div>
+    <form id="wordForm">
+      <div class="form-grid">
+        <label>คำศัพท์ภาษาอังกฤษ *<input id="wordTerm" required maxlength="100" placeholder="e.g. resilient"></label>
+        <label>ความหมายภาษาไทย *<input id="wordMeaning" required maxlength="200" placeholder="เช่น ยืดหยุ่น ฟื้นตัวได้เร็ว"></label>
+        <div class="form-row"><label>บทเรียน<select id="wordChapter"><option value="1">บทที่ 4</option><option value="2">บทที่ 5</option><option value="3">บทที่ 6</option></select></label><label>Part<select id="wordPart"></select></label></div>
+        <label>คำอ่าน / Pronunciation<input id="wordPron" maxlength="100" placeholder="เช่น ริ-ซิล-เลียน (ไม่บังคับ)"></label>
+        <label>ตัวอย่างประโยค / Example<textarea id="wordExample" maxlength="300" placeholder="e.g. She is a resilient person. (ไม่บังคับ)"></textarea></label>
+      </div>
+      <div class="form-actions"><button type="button" class="ghost" id="cancelModal">ยกเลิก</button><button type="submit" class="primary">บันทึกคำศัพท์</button></div>
+    </form>
+  </div>
+</div>
+<input id="importFile" type="file" accept="application/json,.json" class="hidden">
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const CHAPTERS = [
+ {id:1,title:"Chapter One",subtitle:"บทที่ 1 · พื้นฐาน",desc:"Build your foundation",icon:"✳",className:"c1"},
+ {id:2,title:"Chapter Two",subtitle:"บทที่ 2 · เพิ่มคลังคำ",desc:"Grow your vocabulary",icon:"◒",className:"c2"},
+ {id:3,title:"Chapter Three",subtitle:"บทที่ 3 · เตรียมสอบ",desc:"Get exam-ready",icon:"✦",className:"c3"}
+];
+const starterWords = [
+ {id:"s1",term:"achieve",meaning:"บรรลุ, ทำสำเร็จ",chapter:1,pron:"อะ-ชีฟ",example:"You can achieve your goals.",mastered:false,created:1},
+ {id:"s2",term:"improve",meaning:"พัฒนา, ปรับปรุงให้ดีขึ้น",chapter:1,pron:"อิม-พรูฟ",example:"I want to improve my English.",mastered:false,created:2},
+ {id:"s3",term:"essential",meaning:"จำเป็นอย่างยิ่ง",chapter:1,pron:"อิ-เซน-เชิล",example:"Sleep is essential for good health.",mastered:false,created:3},
+ {id:"s4",term:"challenge",meaning:"ความท้าทาย",chapter:2,pron:"แชล-เลนจ์",example:"Learning a language is a challenge.",mastered:false,created:4},
+ {id:"s5",term:"accurate",meaning:"ถูกต้อง, แม่นยำ",chapter:2,pron:"แอค-คิว-เรต",example:"Please provide accurate information.",mastered:false,created:5},
+ {id:"s6",term:"significant",meaning:"สำคัญ, มีนัยสำคัญ",chapter:2,pron:"ซิก-นิฟ-ฟิ-เคินท์",example:"There was a significant change.",mastered:false,created:6},
+ {id:"s7",term:"approach",meaning:"แนวทาง, วิธีการเข้าหา",chapter:3,pron:"อะ-โพรช",example:"We need a new approach to this problem.",mastered:false,created:7},
+ {id:"s8",term:"evaluate",meaning:"ประเมิน",chapter:3,pron:"อิ-แวล-ยู-เอท",example:"The teacher will evaluate our work.",mastered:false,created:8},
+ {id:"s9",term:"reliable",meaning:"เชื่อถือได้",chapter:3,pron:"ริ-ไล-อะ-เบิล",example:"This is a reliable source.",mastered:false,created:9}
+];
+const STORAGE_KEY = "lexi-vocabulary-v1";
+let words = loadWords();
+let nextCreated = Math.max(0,...words.map(w=>Number(w.created)||0))+1;
+let currentChapter = "all", currentPart = "all", editingId = null, gameMode = "quiz", quizItems = [], quizIndex = 0, quizScore = 0, quizLocked = false, flashItems = [], flashIndex = 0, flashRevealed = false, matchItems = [], matchSelected = null, matchedIds = new Set(), matchTries = 0;
+const $ = id => document.getElementById(id);
+function loadWords(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(Array.isArray(parsed))return parsed;}}catch(e){}return starterWords.map(w=>({...w}));}
+function saveWords(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(words));}catch(e){toast("บันทึกในเบราว์เซอร์ไม่ได้ กรุณา Export สำรองข้อมูล");}}
+function escapeHTML(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function toast(message){const t=$("toast");t.textContent=message;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),2400);}
+function chapterName(id){return CHAPTERS.find(c=>c.id===Number(id))?.title||"Chapter";}
+const PART_COUNT=3;
+function partOf(w){return Number(w.part)||1;}
+const PARTS_KEY="lexi-parts-v1";
+let partCounts=(()=>{try{const o=JSON.parse(localStorage.getItem(PARTS_KEY));return o&&typeof o==="object"?o:{};}catch(e){return {};}})();
+function savePartCounts(){try{localStorage.setItem(PARTS_KEY,JSON.stringify(partCounts));}catch(e){}}
+function partList(chapter="all"){const inCh=chapter==="all"?words:words.filter(w=>Number(w.chapter)===Number(chapter));const base=chapter==="all"?Math.max(PART_COUNT,...Object.values(partCounts).map(Number)):Math.max(PART_COUNT,Number(partCounts[chapter])||0);const max=Math.max(base,...inCh.map(partOf));return Array.from({length:max},(_,i)=>i+1);}
+function fillWordParts(){const ch=$("wordChapter").value,keep=$("wordPart").value;$("wordPart").innerHTML=partList(ch).map(p=>`<option value="${p}">Part ${p}</option>`).join("");$("wordPart").value=[...$("wordPart").options].some(o=>o.value===keep)?keep:"1";}
+function wordsIn(chapter="all",part="all"){return words.filter(w=>(chapter==="all"||Number(w.chapter)===Number(chapter))&&(part==="all"||partOf(w)===Number(part)));}
+function renderPartTabs(chapter){const box=$("partTabs");if(chapter==="all"){box.classList.add("hidden");box.innerHTML="";return;}box.classList.remove("hidden");const tab=(val,label,n)=>`<button type="button" class="part-tab ${String(currentPart)===String(val)?"active":""}" role="tab" aria-selected="${String(currentPart)===String(val)}" data-part="${val}">${label}<small>${n}</small></button>`;box.innerHTML=tab("all","ทั้งหมด",wordsIn(chapter).length)+partList(chapter).map(p=>tab(p,"Part "+p,wordsIn(chapter,p).length)).join("")+`<button type="button" class="part-tab add" data-addpart="1">＋ เพิ่ม Part</button>`+(()=>{const l=partList(chapter),last=l[l.length-1];return l.length>1&&!wordsIn(chapter,last).length?`<button type="button" class="part-tab remove" data-rmpart="1" title="ลบ Part ที่ว่างอยู่">− ลบ Part ${last}</button>`:"";})();}
+function goPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));$(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}
+function renderHome(){
+ $("totalWords").textContent=words.length;
+ const mastered=words.filter(w=>w.mastered).length;
+ $("masteredWords").textContent=mastered;
+ $("progressPercent").textContent=(words.length?Math.round(mastered/words.length*100):0)+"%";
+ $("footerCount").textContent=words.length+" words";
+ $("chapterGrid").innerHTML=CHAPTERS.map(c=>{const list=wordsIn(c.id),done=list.filter(w=>w.mastered).length,pct=list.length?Math.round(done/list.length*100):0;return `<button class="chapter ${c.className}" data-chapter="${c.id}"><div><div class="chapter-top"><span class="chapter-number">CHAPTER 0${c.id}</span><span class="chapter-icon">${c.icon}</span></div><h3>${c.title}</h3><p>${c.desc}</p></div><div><div class="chapter-bottom"><span>${list.length} คำศัพท์</span><span>${pct}% complete ↗</span></div><div class="progress"><span style="width:${pct}%"></span></div></div></button>`}).join("");
+ const recent=[...words].sort((a,b)=>(Number(b.created)||0)-(Number(a.created)||0)).slice(0,4);
+ $("recentWords").innerHTML=recent.length?recent.map(w=>`<div class="word-row"><div class="word-main"><strong>${escapeHTML(w.term)}</strong><small>${escapeHTML(w.meaning)}</small></div><span class="tag">CH. 0${w.chapter}</span></div>`).join(""):`<div class="empty"><b>ยังไม่มีคำศัพท์</b>เพิ่มคำแรกของคุณได้เลย</div>`;
+}
+function openVocab(chapter="all"){currentChapter=String(chapter);currentPart="all";$("vocabTitle").textContent=chapter==="all"?"คำศัพท์ทั้งหมด":chapterName(chapter);$("vocabEyebrow").textContent=chapter==="all"?"ALL CHAPTERS":`CHAPTER 0${chapter}`;$("vocabDesc").textContent=chapter==="all"?"ค้นหา จัดการ และทบทวนคำศัพท์ทั้งหมด":"คำศัพท์ในบทนี้ พร้อมตัวอย่างประโยคและคำอ่าน";$("chapterFilter").value=chapter;$("searchInput").value="";renderVocab();goPage("vocabPage");}
+function renderVocab(){
+ const ch=$("chapterFilter").value;if(ch==="all")currentPart="all";renderPartTabs(ch);let list=wordsIn(ch,currentPart);const q=$("searchInput").value.trim().toLowerCase();if(q)list=list.filter(w=>[w.term,w.meaning,w.pron,w.example].some(x=>String(x||"").toLowerCase().includes(q)));
+ const sort=$("sortFilter").value;if(sort==="az")list.sort((a,b)=>a.term.localeCompare(b.term));else if(sort==="mastered")list.sort((a,b)=>Number(a.mastered)-Number(b.mastered));else list.sort((a,b)=>(Number(b.created)||0)-(Number(a.created)||0));
+ $("wordGrid").innerHTML=list.length?list.map(w=>`<article class="vocab-card"><div class="term">${escapeHTML(w.term)}</div><div class="pron">${w.pron?" / "+escapeHTML(w.pron)+" /":" "}</div><div class="meaning">${escapeHTML(w.meaning)}</div>${w.example?`<div class="example">“${escapeHTML(w.example)}”</div>`:""}<div class="card-foot"><span class="tag">CH. 0${w.chapter} · PART ${partOf(w)}${w.mastered?" · จำได้ ✓":""}</span><div class="card-actions"><button class="icon-btn" data-edit="${w.id}" aria-label="แก้ไข ${escapeHTML(w.term)}">แก้ไข</button><button class="icon-btn" data-master="${w.id}" aria-label="สลับสถานะจำได้">${w.mastered?"↺":"✓"}</button><button class="icon-btn" data-delete="${w.id}" aria-label="ลบ ${escapeHTML(w.term)}">×</button></div></div></article>`).join(""):`<div class="empty"><b>ไม่พบคำศัพท์</b>ลองเปลี่ยนคำค้นหา หรือเพิ่มคำศัพท์ใหม่</div>`;
+}
+function openModal(id=null){editingId=id;const w=words.find(x=>x.id===id);$("wordForm").reset();$("wordPart").innerHTML=partList().map(p=>`<option value="${p}">Part ${p}</option>`).join("");$("modalTitle").textContent=w?"แก้ไขคำศัพท์":"เพิ่มคำศัพท์ใหม่";if(w){$("wordTerm").value=w.term;$("wordMeaning").value=w.meaning;$("wordChapter").value=String(w.chapter);$("wordPart").value=String(partOf(w));$("wordPron").value=w.pron||"";$("wordExample").value=w.example||"";}else{$("wordChapter").value=currentChapter==="all"?"1":currentChapter;$("wordPart").value=currentChapter==="all"||currentPart==="all"?"1":String(currentPart);}fillWordParts();$("wordModal").classList.add("open");setTimeout(()=>$("wordTerm").focus(),50);}
+function closeModal(){$("wordModal").classList.remove("open");editingId=null;}
+$("wordForm").addEventListener("submit",e=>{e.preventDefault();const term=$("wordTerm").value.trim(),meaning=$("wordMeaning").value.trim();if(!term||!meaning)return;const data={term,meaning,chapter:Number($("wordChapter").value),part:Number($("wordPart").value)||1,pron:$("wordPron").value.trim(),example:$("wordExample").value.trim()};if(editingId){words=words.map(w=>w.id===editingId?{...w,...data}:w);toast("อัปเดตคำศัพท์แล้ว");}else{words.push({id:"w"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),...data,mastered:false,created:nextCreated++});toast("เพิ่มคำศัพท์แล้ว ✨");}saveWords();closeModal();renderHome();if($("vocabPage").classList.contains("active"))renderVocab();});
+function deleteWord(id){const w=words.find(x=>x.id===id);if(!w)return;if(!confirm(`ต้องการลบคำว่า “${w.term}” หรือไม่?`))return;words=words.filter(x=>x.id!==id);saveWords();renderHome();renderVocab();toast("ลบคำศัพท์แล้ว");}
+function toggleMastered(id){words=words.map(w=>w.id===id?{...w,mastered:!w.mastered}:w);saveWords();renderHome();renderVocab();}
+const GAME_NAMES={quiz:["QUICK QUIZ","Quick Quiz","เลือกความหมายที่ตรงกับคำศัพท์"],flash:["FLASHCARDS","Flashcards","แตะบัตรคำเพื่อดูความหมาย แล้วประเมินว่าจำได้หรือยัง"],match:["WORD MATCH","Word Match","จับคู่คำศัพท์ภาษาอังกฤษกับความหมายภาษาไทย"]};
+let gameSel={chapter:"all",part:"all"};
+function startGame(mode,chapter=$("gameChapter").value,part){
+ gameMode=mode;$("gameChapter").value=chapter;$("gameSelects").classList.remove("hidden");
+ const gp=$("gamePart");if(chapter==="all"){gp.classList.add("hidden");gp.innerHTML="";gp.value="all";}else{const prev=part!==undefined?String(part):gp.value;gp.innerHTML='<option value="all">ทุก Part</option>'+partList(chapter).map(p=>`<option value="${p}">Part ${p}</option>`).join("");gp.value=[...gp.options].some(o=>o.value===prev)?prev:"all";gp.classList.remove("hidden");}
+ const names=GAME_NAMES;
+ [$("gameEyebrow").textContent,$("gameTitle").textContent,$("gameDesc").textContent]=names[mode];
+ const pool=wordsIn(chapter,chapter==="all"?"all":gp.value);
+ if(!pool.length){$("quizArea").innerHTML=`<div class="empty"><b>ยังไม่มีคำศัพท์ในส่วนนี้</b>เพิ่มคำศัพท์ก่อนเริ่มเล่นได้เลย<br><br><button class="primary" id="addFromGame">＋ เพิ่มคำศัพท์</button></div>`;goPage("gamePage");$("addFromGame").onclick=()=>openModal();return;}
+ if(mode==="quiz"){quizItems=shuffle(pool).slice(0,Math.min(10,pool.length));quizIndex=0;quizScore=0;quizLocked=false;renderQuiz();}
+ if(mode==="flash"){flashItems=shuffle(pool);flashIndex=0;flashRevealed=false;renderFlash();}
+ if(mode==="match"){matchItems=shuffle(pool).slice(0,Math.min(6,pool.length));matchSelected=null;matchedIds=new Set();matchTries=0;renderMatch();}
+ goPage("gamePage");
+}
+function showGameSetup(mode){
+ gameMode=mode;gameSel={chapter:"all",part:"all"};
+ [$("gameEyebrow").textContent,$("gameTitle").textContent,$("gameDesc").textContent]=GAME_NAMES[mode];
+ $("gameSelects").classList.add("hidden");renderGameSetup();goPage("gamePage");
+}
+function renderGameSetup(){
+ const {chapter,part}=gameSel;
+ const chip=(kind,val,label,n,active)=>`<button type="button" class="part-tab ${active?"active":""}" data-setup="${kind}" data-val="${val}" ${n?"":"disabled"}>${label}<small>${n}</small></button>`;
+ const chapterChips=chip("chapter","all","ทุกบท",words.length,chapter==="all")+CHAPTERS.map(c=>chip("chapter",c.id,"บทที่ "+c.id,wordsIn(c.id).length,String(chapter)===String(c.id))).join("");
+ const partBlock=chapter==="all"?`<p class="notice" style="margin:0">เลือกบทก่อน เพื่อเลือก Part ที่ต้องการ</p>`:`<div class="setup-chips">${chip("part","all","ทุก Part",wordsIn(chapter).length,part==="all")+partList(chapter).map(p=>chip("part",p,"Part "+p,wordsIn(chapter,p).length,String(part)===String(p))).join("")}</div>`;
+ const n=wordsIn(chapter,part).length;
+ $("quizArea").innerHTML=`<div class="setup-card"><div class="setup-group"><div class="setup-label">1 · เลือกบท</div><div class="setup-chips">${chapterChips}</div></div><div class="setup-group"><div class="setup-label">2 · เลือก Part</div>${partBlock}</div><div class="setup-foot"><span>${n?`พร้อมเล่น ${n} คำ`:"ยังไม่มีคำศัพท์ในตัวเลือกนี้"}</span><button class="primary" id="startGameBtn" ${n?"":"disabled"}>เริ่มเล่น ↗</button></div></div>`;
+ $("startGameBtn").onclick=()=>startGame(gameMode,String(gameSel.chapter),gameSel.part);
+}
+$("quizArea").addEventListener("click",e=>{const b=e.target.closest("[data-setup]");if(!b||b.disabled)return;if(b.dataset.setup==="chapter"){gameSel.chapter=b.dataset.val;gameSel.part="all";}else gameSel.part=b.dataset.val;renderGameSetup();});
+function shuffle(arr){return [...arr].sort(()=>Math.random()-.5);}
+function renderQuiz(){
+ if(quizIndex>=quizItems.length){const pct=Math.round(quizScore/quizItems.length*100);$("quizArea").innerHTML=`<div class="question-card result-box"><div class="eyebrow">QUIZ COMPLETED</div><div class="result-score">${quizScore}/${quizItems.length}</div><h2>${pct>=80?"เยี่ยมมาก!":"ทำได้ดีแล้ว!"}</h2><p>คุณตอบถูก ${pct}% ลองเล่นอีกครั้งเพื่อจำให้แม่นขึ้น</p><button class="primary" id="retryQuiz">เล่นอีกครั้ง ↻</button> <button class="ghost" id="quizHome">กลับหน้าหลัก</button></div>`;$("retryQuiz").onclick=()=>startGame("quiz",$("gameChapter").value);$("quizHome").onclick=()=>goPage("homePage");return;}
+ const w=quizItems[quizIndex],distractors=shuffle(words.filter(x=>x.id!==w.id).map(x=>x.meaning)).slice(0,3),opts=shuffle([w.meaning,...distractors]);
+ quizLocked=false;
+ $("quizArea").innerHTML=`<div class="quiz-meta"><span>QUESTION ${quizIndex+1} / ${quizItems.length}</span><span>คะแนน ${quizScore}</span></div><div class="quiz-progress"><span style="width:${quizIndex/quizItems.length*100}%"></span></div><div class="question-card"><div class="question-label">คำนี้แปลว่าอะไร?</div><div class="question-word">${escapeHTML(w.term)}</div><div class="question-hint">${w.pron?"คำอ่าน: "+escapeHTML(w.pron):"เลือกความหมายที่ถูกต้อง"}</div><div class="answers">${opts.map((o,i)=>`<button class="answer" data-answer="${i}">${escapeHTML(o)}</button>`).join("")}</div><div class="feedback" id="quizFeedback" aria-live="polite"></div><div class="quiz-actions"><button class="ghost" id="quitQuiz">ออกจากเกม</button><button class="primary hidden" id="nextQuestion">${quizIndex===quizItems.length-1?"ดูผลคะแนน":"ข้อต่อไป →"}</button></div></div>`;
+ document.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>{if(quizLocked)return;quizLocked=true;const chosen=opts[Number(b.dataset.answer)],correct=chosen===w.meaning;document.querySelectorAll("[data-answer]").forEach(x=>{x.disabled=true;if(x.textContent===w.meaning)x.classList.add("correct");});if(correct){quizScore++;b.classList.add("correct");$("quizFeedback").textContent="ถูกต้อง! เก่งมาก ✨";}else{b.classList.add("wrong");$("quizFeedback").textContent="คำตอบ: "+w.meaning;}const n=$("nextQuestion");n.classList.remove("hidden");});
+ $("nextQuestion").onclick=()=>{quizIndex++;renderQuiz();};$("quitQuiz").onclick=()=>goPage("homePage");
+}
+function renderFlash(){
+ const w=flashItems[flashIndex];if(!w){$("quizArea").innerHTML=`<div class="question-card result-box"><div class="eyebrow">FLASHCARDS COMPLETE</div><h2>ทบทวนครบแล้ว!</h2><p>คุณผ่านบัตรคำทั้งหมด ${flashItems.length} ใบ</p><button class="primary" id="flashAgain">เริ่มใหม่ ↻</button> <button class="ghost" id="flashHome">หน้าหลัก</button></div>`;$("flashAgain").onclick=()=>startGame("flash",$("gameChapter").value);$("flashHome").onclick=()=>goPage("homePage");return;}
+ $("quizArea").innerHTML=`<div class="quiz-meta"><span>CARD ${flashIndex+1} / ${flashItems.length}</span><span>${flashRevealed?"MEANING":"ENGLISH"}</span></div><div class="quiz-progress"><span style="width:${(flashIndex+1)/flashItems.length*100}%"></span></div><div class="flashcard" id="flashCard" role="button" tabindex="0" aria-label="พลิกบัตรคำ"><div><div class="small">${flashRevealed?"ความหมายภาษาไทย":"คำศัพท์ภาษาอังกฤษ"}</div><div class="big">${escapeHTML(flashRevealed?w.meaning:w.term)}</div>${flashRevealed&&w.example?`<div class="question-hint" style="margin-top:13px">“${escapeHTML(w.example)}”</div>`:""}<div class="flip-hint">${flashRevealed?"ทบทวนแล้วเลือกสถานะด้านล่าง":"แตะเพื่อพลิกบัตร ↻"}</div></div></div><div class="flash-controls">${flashRevealed?`<button class="ghost" id="notKnow">ยังจำไม่ได้</button><button class="primary" id="knowWord">จำได้แล้ว ✓</button>`:`<button class="primary" id="revealFlash">เปิดดูความหมาย ↻</button>`}<button class="ghost" id="skipFlash">ข้าม →</button></div>`;
+ const flip=()=>{flashRevealed=!flashRevealed;renderFlash();};$("flashCard").onclick=flip;$("flashCard").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();}};
+ if($("revealFlash"))$("revealFlash").onclick=flip;
+ if($("knowWord"))$("knowWord").onclick=()=>{const id=w.id;words=words.map(x=>x.id===id?{...x,mastered:true}:x);saveWords();renderHome();flashIndex++;flashRevealed=false;renderFlash();};
+ if($("notKnow"))$("notKnow").onclick=()=>{const id=w.id;words=words.map(x=>x.id===id?{...x,mastered:false}:x);saveWords();renderHome();flashIndex++;flashRevealed=false;renderFlash();};
+ $("skipFlash").onclick=()=>{flashIndex++;flashRevealed=false;renderFlash();};
+}
+function renderMatch(){
+ const pool=matchItems;if(!pool.length)return;
+ const tiles=shuffle([...pool.map(w=>({id:w.id,kind:"term",text:w.term})),...pool.map(w=>({id:w.id,kind:"meaning",text:w.meaning}))]);
+ $("quizArea").innerHTML=`<div class="quiz-meta"><span>PAIRS ${matchedIds.size/2} / ${pool.length}</span><span>ลองไปแล้ว ${matchTries} ครั้ง</span></div><div class="quiz-progress"><span style="width:${matchedIds.size/(pool.length*2)*100}%"></span></div><div class="panel"><div class="panel-title"><h2>จับคู่คำศัพท์</h2><span>เลือก 2 ใบที่ตรงกัน</span></div><div class="match-grid">${tiles.map((t,i)=>`<button class="match-tile ${matchedIds.has(t.id+"|"+t.kind)?"matched":""} ${matchSelected&&matchSelected.index===i?"selected":""}" data-tile="${i}" ${matchedIds.has(t.id+"|"+t.kind)?"disabled":""}>${escapeHTML(t.text)}</button>`).join("")}</div><p class="notice" id="matchNotice">จับคู่คำศัพท์กับความหมายให้ครบทุกคู่</p><div style="margin-top:16px"><button class="ghost" id="restartMatch">เริ่มใหม่ ↻</button> <button class="ghost" id="exitMatch">หน้าหลัก</button></div></div>`;
+ // Keep the exact shuffled arrangement stable for each render.
+ const currentTiles=tiles;
+ document.querySelectorAll("[data-tile]").forEach(b=>b.onclick=()=>{const i=Number(b.dataset.tile),t=currentTiles[i];if(matchedIds.has(t.id+"|"+t.kind))return;if(!matchSelected){matchSelected={index:i,tile:t};b.classList.add("selected");$("matchNotice").textContent="เลือกอีกหนึ่งใบที่คิดว่าเป็นคู่กัน";return;}if(matchSelected.index===i)return;matchTries++;const first=matchSelected.tile;if(first.id===t.id&&first.kind!==t.kind){matchedIds.add(first.id+"|"+first.kind);matchedIds.add(t.id+"|"+t.kind);matchSelected=null;if(matchedIds.size===pool.length*2){renderMatch();$("matchNotice").textContent=`สำเร็จ! จับคู่ครบใน ${matchTries} ครั้ง`;return;}renderMatch();$("matchNotice").textContent="ถูกต้อง! ไปต่อเลย ✨";}else{b.classList.add("miss");const firstButton=document.querySelector(`[data-tile="${matchSelected.index}"]`);if(firstButton)firstButton.classList.add("miss");const prev=matchSelected.index;matchSelected=null;$("matchNotice").textContent="ยังไม่ตรงกัน ลองอีกครั้ง";setTimeout(()=>{const a=document.querySelector(`[data-tile="${prev}"]`),z=document.querySelector(`[data-tile="${i}"]`);if(a)a.classList.remove("miss","selected");if(z)z.classList.remove("miss","selected");},500);}});
+ $("restartMatch").onclick=()=>startGame("match",$("gameChapter").value);$("exitMatch").onclick=()=>goPage("homePage");
+}
+$("chapterGrid").addEventListener("click",e=>{const b=e.target.closest("[data-chapter]");if(b)openVocab(b.dataset.chapter);});
+$("wordGrid").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.edit)openModal(b.dataset.edit);if(b.dataset.delete)deleteWord(b.dataset.delete);if(b.dataset.master)toggleMastered(b.dataset.master);});
+$("searchInput").addEventListener("input",renderVocab);$("chapterFilter").addEventListener("change",()=>{currentPart="all";renderVocab();});
+$("partTabs").addEventListener("click",e=>{const ch=$("chapterFilter").value;if(ch==="all")return;
+ if(e.target.closest("[data-addpart]")){const l=partList(ch);if(l.length>=30){toast("เพิ่ม Part ได้สูงสุด 30 Part");return;}partCounts[ch]=l.length+1;savePartCounts();currentPart=String(l.length+1);renderVocab();toast("เพิ่ม Part "+(l.length+1)+" แล้ว");return;}
+ if(e.target.closest("[data-rmpart]")){const l=partList(ch),last=l[l.length-1];if(wordsIn(ch,last).length||l.length<2)return;partCounts[ch]=l.length-1;savePartCounts();if(String(currentPart)===String(last))currentPart="all";renderVocab();toast("ลบ Part "+last+" แล้ว");return;}
+ const b=e.target.closest("[data-part]");if(!b)return;currentPart=b.dataset.part;renderVocab();});
+$("wordChapter").addEventListener("change",fillWordParts);$("sortFilter").addEventListener("change",renderVocab);
+$("addWordHome").onclick=()=>{currentChapter="all";openModal();};$("addWordPage").onclick=()=>openModal();$("closeModal").onclick=closeModal;$("cancelModal").onclick=closeModal;
+$("wordModal").addEventListener("click",e=>{if(e.target===$("wordModal"))closeModal();});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+document.querySelectorAll("[data-home]").forEach(b=>b.onclick=()=>{renderHome();goPage("homePage");});
+$("viewAllBtn").onclick=()=>openVocab("all");
+document.querySelectorAll("[data-game]").forEach(b=>b.onclick=()=>showGameSetup(b.dataset.game));
+$("gameChapter").addEventListener("change",()=>{$("gamePart").value="all";startGame(gameMode,$("gameChapter").value);});
+$("gamePart").addEventListener("change",()=>startGame(gameMode,$("gameChapter").value));
+$("importBtn").onclick=()=>$("importFile").click();
+$("exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(words,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="lexi-vocabulary-backup.json";a.click();URL.revokeObjectURL(url);toast("Export ข้อมูลแล้ว");};
+$("importFile").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);if(!Array.isArray(data)||data.some(w=>!w.term||!w.meaning||![1,2,3].includes(Number(w.chapter))))throw new Error();if(confirm(`นำเข้าคำศัพท์ ${data.length} คำแทนข้อมูลปัจจุบันหรือไม่?`)){words=data.map((w,i)=>({...w,id:String(w.id||"import"+i),chapter:Number(w.chapter),part:Number(w.part)||1,created:Number(w.created)||i+1,mastered:!!w.mastered}));nextCreated=Math.max(0,...words.map(w=>w.created))+1;saveWords();renderHome();toast("นำเข้าข้อมูลสำเร็จ");}}catch(err){toast("ไฟล์ไม่ถูกต้อง กรุณาเลือกไฟล์ Export จาก Lexi");}e.target.value="";};reader.readAsText(f);});
+$("datePill").textContent=new Intl.DateTimeFormat("th-TH",{day:"numeric",month:"short",year:"numeric"}).format(new Date()).toUpperCase();
+renderHome();
+</script>
+</body>
+</html>
