@@ -50,15 +50,15 @@
 
   <main id="vocabPage" class="page">
     <div class="backline"><button class="back" data-home>← หน้าหลัก</button><span class="eyebrow">YOUR VOCABULARY</span></div>
-    <div class="page-heading"><div><div class="eyebrow" id="vocabEyebrow">CHAPTER 01</div><h1 id="vocabTitle">คำศัพท์</h1><p id="vocabDesc">ทบทวนคำศัพท์ของคุณ</p></div><button class="primary" id="addWordPage">＋ เพิ่มคำศัพท์</button></div>
-    <div class="toolbar"><input id="searchInput" class="field search" placeholder="ค้นหาคำศัพท์หรือความหมาย..." aria-label="ค้นหาคำศัพท์"><select id="chapterFilter" class="field" aria-label="เลือกบท"><option value="all">ทุกบท</option><option value="1">บทที่ 1</option><option value="2">บทที่ 2</option><option value="3">บทที่ 3</option></select><select id="sortFilter" class="field" aria-label="เรียงลำดับ"><option value="new">เพิ่มล่าสุด</option><option value="az">A → Z</option><option value="mastered">คำที่ยังไม่จำ</option></select></div>
+    <div class="page-heading"><div><div class="eyebrow" id="vocabEyebrow">CHAPTER 04</div><h1 id="vocabTitle">คำศัพท์</h1><p id="vocabDesc">ทบทวนคำศัพท์ของคุณ</p></div><button class="primary" id="addWordPage">＋ เพิ่มคำศัพท์</button></div>
+    <div class="toolbar"><input id="searchInput" class="field search" placeholder="ค้นหาคำศัพท์หรือความหมาย..." aria-label="ค้นหาคำศัพท์"><select id="chapterFilter" class="field" aria-label="เลือกบท"><option value="all">ทุกบท</option><option value="1">บทที่ 4</option><option value="2">บทที่ 5</option><option value="3">บทที่ 6</option></select><select id="sortFilter" class="field" aria-label="เรียงลำดับ"><option value="new">เพิ่มล่าสุด</option><option value="az">A → Z</option><option value="mastered">คำที่ยังไม่จำ</option></select></div>
     <div class="part-tabs hidden" id="partTabs" role="tablist" aria-label="เลือก Part"></div>
     <div class="word-grid" id="wordGrid"></div>
   </main>
 
   <main id="gamePage" class="page">
     <div class="backline"><button class="back" data-home>← หน้าหลัก</button><span class="eyebrow">PRACTICE MODE</span></div>
-    <div class="page-heading"><div><div class="eyebrow" id="gameEyebrow">QUICK QUIZ</div><h1 id="gameTitle">พร้อมทบทวนหรือยัง?</h1><p id="gameDesc">ฝึกวันละนิด จำได้มากขึ้น</p></div><div class="head-selects hidden" id="gameSelects"><select id="gameChapter" class="field" aria-label="เลือกบทสำหรับเกม"><option value="all">ทุกบท</option><option value="1">บทที่ 1</option><option value="2">บทที่ 2</option><option value="3">บทที่ 3</option></select><select id="gamePart" class="field hidden" aria-label="เลือก Part สำหรับเกม"></select></div></div>
+    <div class="page-heading"><div><div class="eyebrow" id="gameEyebrow">QUICK QUIZ</div><h1 id="gameTitle">พร้อมทบทวนหรือยัง?</h1><p id="gameDesc">ฝึกวันละนิด จำได้มากขึ้น</p></div><div class="head-selects hidden" id="gameSelects"><select id="gameChapter" class="field" aria-label="เลือกบทสำหรับเกม"><option value="all">ทุกบท</option><option value="1">บทที่ 4</option><option value="2">บทที่ 5</option><option value="3">บทที่ 6</option></select><select id="gamePart" class="field hidden" aria-label="เลือก Part สำหรับเกม"></select></div></div>
     <div class="quiz-wrap" id="quizArea"></div>
   </main>
   <div class="footer">Made for your next big exam · <span id="footerCount">0 words</span> in your collection</div>
@@ -82,9 +82,9 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const CHAPTERS = [
- {id:1,title:"Chapter One",subtitle:"บทที่ 1 · พื้นฐาน",desc:"Build your foundation",icon:"✳",className:"c1"},
- {id:2,title:"Chapter Two",subtitle:"บทที่ 2 · เพิ่มคลังคำ",desc:"Grow your vocabulary",icon:"◒",className:"c2"},
- {id:3,title:"Chapter Three",subtitle:"บทที่ 3 · เตรียมสอบ",desc:"Get exam-ready",icon:"✦",className:"c3"}
+ {id:1,num:4,title:"Chapter Four",subtitle:"บทที่ 4 · พื้นฐาน",desc:"Build your foundation",icon:"✳",className:"c1"},
+ {id:2,num:5,title:"Chapter Five",subtitle:"บทที่ 5 · เพิ่มคลังคำ",desc:"Grow your vocabulary",icon:"◒",className:"c2"},
+ {id:3,num:6,title:"Chapter Six",subtitle:"บทที่ 6 · เตรียมสอบ",desc:"Get exam-ready",icon:"✦",className:"c3"}
 ];
 const starterWords = [
  {id:"s1",term:"achieve",meaning:"บรรลุ, ทำสำเร็จ",chapter:1,pron:"อะ-ชีฟ",example:"You can achieve your goals.",mastered:false,created:1},
@@ -106,6 +106,7 @@ function loadWords(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){con
 function saveWords(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(words));}catch(e){toast("บันทึกในเบราว์เซอร์ไม่ได้ กรุณา Export สำรองข้อมูล");}}
 function escapeHTML(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function toast(message){const t=$("toast");t.textContent=message;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),2400);}
+function chNum(id){return CHAPTERS.find(c=>c.id===Number(id))?.num||Number(id);}
 function chapterName(id){return CHAPTERS.find(c=>c.id===Number(id))?.title||"Chapter";}
 const PART_COUNT=3;
 function partOf(w){return Number(w.part)||1;}
@@ -123,15 +124,15 @@ function renderHome(){
  $("masteredWords").textContent=mastered;
  $("progressPercent").textContent=(words.length?Math.round(mastered/words.length*100):0)+"%";
  $("footerCount").textContent=words.length+" words";
- $("chapterGrid").innerHTML=CHAPTERS.map(c=>{const list=wordsIn(c.id),done=list.filter(w=>w.mastered).length,pct=list.length?Math.round(done/list.length*100):0;return `<button class="chapter ${c.className}" data-chapter="${c.id}"><div><div class="chapter-top"><span class="chapter-number">CHAPTER 0${c.id}</span><span class="chapter-icon">${c.icon}</span></div><h3>${c.title}</h3><p>${c.desc}</p></div><div><div class="chapter-bottom"><span>${list.length} คำศัพท์</span><span>${pct}% complete ↗</span></div><div class="progress"><span style="width:${pct}%"></span></div></div></button>`}).join("");
+ $("chapterGrid").innerHTML=CHAPTERS.map(c=>{const list=wordsIn(c.id),done=list.filter(w=>w.mastered).length,pct=list.length?Math.round(done/list.length*100):0;return `<button class="chapter ${c.className}" data-chapter="${c.id}"><div><div class="chapter-top"><span class="chapter-number">CHAPTER 0${c.num}</span><span class="chapter-icon">${c.icon}</span></div><h3>${c.title}</h3><p>${c.desc}</p></div><div><div class="chapter-bottom"><span>${list.length} คำศัพท์</span><span>${pct}% complete ↗</span></div><div class="progress"><span style="width:${pct}%"></span></div></div></button>`}).join("");
  const recent=[...words].sort((a,b)=>(Number(b.created)||0)-(Number(a.created)||0)).slice(0,4);
- $("recentWords").innerHTML=recent.length?recent.map(w=>`<div class="word-row"><div class="word-main"><strong>${escapeHTML(w.term)}</strong><small>${escapeHTML(w.meaning)}</small></div><span class="tag">CH. 0${w.chapter}</span></div>`).join(""):`<div class="empty"><b>ยังไม่มีคำศัพท์</b>เพิ่มคำแรกของคุณได้เลย</div>`;
+ $("recentWords").innerHTML=recent.length?recent.map(w=>`<div class="word-row"><div class="word-main"><strong>${escapeHTML(w.term)}</strong><small>${escapeHTML(w.meaning)}</small></div><span class="tag">CH. 0${chNum(w.chapter)}</span></div>`).join(""):`<div class="empty"><b>ยังไม่มีคำศัพท์</b>เพิ่มคำแรกของคุณได้เลย</div>`;
 }
-function openVocab(chapter="all"){currentChapter=String(chapter);currentPart="all";$("vocabTitle").textContent=chapter==="all"?"คำศัพท์ทั้งหมด":chapterName(chapter);$("vocabEyebrow").textContent=chapter==="all"?"ALL CHAPTERS":`CHAPTER 0${chapter}`;$("vocabDesc").textContent=chapter==="all"?"ค้นหา จัดการ และทบทวนคำศัพท์ทั้งหมด":"คำศัพท์ในบทนี้ พร้อมตัวอย่างประโยคและคำอ่าน";$("chapterFilter").value=chapter;$("searchInput").value="";renderVocab();goPage("vocabPage");}
+function openVocab(chapter="all"){currentChapter=String(chapter);currentPart="all";$("vocabTitle").textContent=chapter==="all"?"คำศัพท์ทั้งหมด":chapterName(chapter);$("vocabEyebrow").textContent=chapter==="all"?"ALL CHAPTERS":`CHAPTER 0${chNum(chapter)}`;$("vocabDesc").textContent=chapter==="all"?"ค้นหา จัดการ และทบทวนคำศัพท์ทั้งหมด":"คำศัพท์ในบทนี้ พร้อมตัวอย่างประโยคและคำอ่าน";$("chapterFilter").value=chapter;$("searchInput").value="";renderVocab();goPage("vocabPage");}
 function renderVocab(){
  const ch=$("chapterFilter").value;if(ch==="all")currentPart="all";renderPartTabs(ch);let list=wordsIn(ch,currentPart);const q=$("searchInput").value.trim().toLowerCase();if(q)list=list.filter(w=>[w.term,w.meaning,w.pron,w.example].some(x=>String(x||"").toLowerCase().includes(q)));
  const sort=$("sortFilter").value;if(sort==="az")list.sort((a,b)=>a.term.localeCompare(b.term));else if(sort==="mastered")list.sort((a,b)=>Number(a.mastered)-Number(b.mastered));else list.sort((a,b)=>(Number(b.created)||0)-(Number(a.created)||0));
- $("wordGrid").innerHTML=list.length?list.map(w=>`<article class="vocab-card"><div class="term">${escapeHTML(w.term)}</div><div class="pron">${w.pron?" / "+escapeHTML(w.pron)+" /":" "}</div><div class="meaning">${escapeHTML(w.meaning)}</div>${w.example?`<div class="example">“${escapeHTML(w.example)}”</div>`:""}<div class="card-foot"><span class="tag">CH. 0${w.chapter} · PART ${partOf(w)}${w.mastered?" · จำได้ ✓":""}</span><div class="card-actions"><button class="icon-btn" data-edit="${w.id}" aria-label="แก้ไข ${escapeHTML(w.term)}">แก้ไข</button><button class="icon-btn" data-master="${w.id}" aria-label="สลับสถานะจำได้">${w.mastered?"↺":"✓"}</button><button class="icon-btn" data-delete="${w.id}" aria-label="ลบ ${escapeHTML(w.term)}">×</button></div></div></article>`).join(""):`<div class="empty"><b>ไม่พบคำศัพท์</b>ลองเปลี่ยนคำค้นหา หรือเพิ่มคำศัพท์ใหม่</div>`;
+ $("wordGrid").innerHTML=list.length?list.map(w=>`<article class="vocab-card"><div class="term">${escapeHTML(w.term)}</div><div class="pron">${w.pron?" / "+escapeHTML(w.pron)+" /":" "}</div><div class="meaning">${escapeHTML(w.meaning)}</div>${w.example?`<div class="example">“${escapeHTML(w.example)}”</div>`:""}<div class="card-foot"><span class="tag">CH. 0${chNum(w.chapter)} · PART ${partOf(w)}${w.mastered?" · จำได้ ✓":""}</span><div class="card-actions"><button class="icon-btn" data-edit="${w.id}" aria-label="แก้ไข ${escapeHTML(w.term)}">แก้ไข</button><button class="icon-btn" data-master="${w.id}" aria-label="สลับสถานะจำได้">${w.mastered?"↺":"✓"}</button><button class="icon-btn" data-delete="${w.id}" aria-label="ลบ ${escapeHTML(w.term)}">×</button></div></div></article>`).join(""):`<div class="empty"><b>ไม่พบคำศัพท์</b>ลองเปลี่ยนคำค้นหา หรือเพิ่มคำศัพท์ใหม่</div>`;
 }
 function openModal(id=null){editingId=id;const w=words.find(x=>x.id===id);$("wordForm").reset();$("wordPart").innerHTML=partList().map(p=>`<option value="${p}">Part ${p}</option>`).join("");$("modalTitle").textContent=w?"แก้ไขคำศัพท์":"เพิ่มคำศัพท์ใหม่";if(w){$("wordTerm").value=w.term;$("wordMeaning").value=w.meaning;$("wordChapter").value=String(w.chapter);$("wordPart").value=String(partOf(w));$("wordPron").value=w.pron||"";$("wordExample").value=w.example||"";}else{$("wordChapter").value=currentChapter==="all"?"1":currentChapter;$("wordPart").value=currentChapter==="all"||currentPart==="all"?"1":String(currentPart);}fillWordParts();$("wordModal").classList.add("open");setTimeout(()=>$("wordTerm").focus(),50);}
 function closeModal(){$("wordModal").classList.remove("open");editingId=null;}
@@ -160,7 +161,7 @@ function showGameSetup(mode){
 function renderGameSetup(){
  const {chapter,part}=gameSel;
  const chip=(kind,val,label,n,active)=>`<button type="button" class="part-tab ${active?"active":""}" data-setup="${kind}" data-val="${val}" ${n?"":"disabled"}>${label}<small>${n}</small></button>`;
- const chapterChips=chip("chapter","all","ทุกบท",words.length,chapter==="all")+CHAPTERS.map(c=>chip("chapter",c.id,"บทที่ "+c.id,wordsIn(c.id).length,String(chapter)===String(c.id))).join("");
+ const chapterChips=chip("chapter","all","ทุกบท",words.length,chapter==="all")+CHAPTERS.map(c=>chip("chapter",c.id,"บทที่ "+c.num,wordsIn(c.id).length,String(chapter)===String(c.id))).join("");
  const partBlock=chapter==="all"?`<p class="notice" style="margin:0">เลือกบทก่อน เพื่อเลือก Part ที่ต้องการ</p>`:`<div class="setup-chips">${chip("part","all","ทุก Part",wordsIn(chapter).length,part==="all")+partList(chapter).map(p=>chip("part",p,"Part "+p,wordsIn(chapter,p).length,String(part)===String(p))).join("")}</div>`;
  const n=wordsIn(chapter,part).length;
  $("quizArea").innerHTML=`<div class="setup-card"><div class="setup-group"><div class="setup-label">1 · เลือกบท</div><div class="setup-chips">${chapterChips}</div></div><div class="setup-group"><div class="setup-label">2 · เลือก Part</div>${partBlock}</div><div class="setup-foot"><span>${n?`พร้อมเล่น ${n} คำ`:"ยังไม่มีคำศัพท์ในตัวเลือกนี้"}</span><button class="primary" id="startGameBtn" ${n?"":"disabled"}>เริ่มเล่น ↗</button></div></div>`;
